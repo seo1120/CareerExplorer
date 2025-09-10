@@ -49,7 +49,7 @@ export default function App() {
       title: "UX 디자이너",
       description: "사용자 경험을 설계하고 개선하는 디자이너로, 사용자 중심의 제품을 만드는 것이 핵심 업무입니다.",
       tags: ["Artistic", "Creative", "People", "Social", "Education"],
-      valueProfile: { creativity: 5, impact: 4, stability: 3 },
+      valueProfile: { creativity: 5, impact: 4, stability: 3, challenge: 2, income: 3, publicGood: 4 },
       skills: ["Figma", "User Research", "Prototyping"],
       salary: "연봉 3,500만원 ~ 6,000만원",
       requirements: ["디자인 감각", "사용자 이해", "커뮤니케이션 능력"],
@@ -69,7 +69,7 @@ export default function App() {
       title: "풀스택 개발자",
       description: "프론트엔드와 백엔드를 모두 개발하며, 웹서비스 전반을 구현하는 개발자입니다.",
       tags: ["Investigative", "Realistic", "Creative", "Business"],
-      valueProfile: { creativity: 4, challenge: 4, income: 4 },
+      valueProfile: { creativity: 4, challenge: 4, income: 4, stability: 3, impact: 3, publicGood: 2 },
       skills: ["HTML/CSS", "JavaScript", "React", "Node.js", "SQL"],
       salary: "연봉 4,500만원 ~ 8,000만원",
       requirements: ["프로그래밍 언어", "프레임워크 이해", "DB 지식"],
@@ -88,7 +88,7 @@ export default function App() {
       title: "클라우드 엔지니어",
       description: "AWS, Azure, GCP 등 클라우드 플랫폼을 활용하여 인프라를 설계하고 운영하는 엔지니어입니다.",
       tags: ["Realistic", "Investigative", "Conventional", "Hardware"],
-      valueProfile: { stability: 5, challenge: 4, income: 4 },
+      valueProfile: { stability: 5, challenge: 4, income: 4, creativity: 2, impact: 3, publicGood: 2 },
       skills: ["AWS", "Docker", "Terraform"],
       salary: "연봉 5,000만원 ~ 9,000만원",
       requirements: ["클라우드 서비스", "인프라 아키텍처", "보안 기초"],
@@ -107,7 +107,7 @@ export default function App() {
       title: "데브옵스 엔지니어",
       description: "개발과 운영을 연결하며 CI/CD와 자동화를 통해 빠르고 안정적인 배포를 책임집니다.",
       tags: ["Realistic", "Investigative", "Conventional", "Leadership"],
-      valueProfile: { stability: 4, challenge: 5, income: 4 },
+      valueProfile: { stability: 4, challenge: 5, income: 4, creativity: 2, impact: 3, publicGood: 2 },
       skills: ["CI/CD", "Docker", "Kubernetes", "Monitoring"],
       salary: "연봉 5,000만원 ~ 9,000만원",
       requirements: ["CI/CD 파이프라인", "컨테이너 오케스트레이션", "자동화 스크립트"],
@@ -126,7 +126,7 @@ export default function App() {
       title: "데이터 사이언티스트",
       description: "대용량 데이터를 분석하여 비즈니스 인사이트를 도출하고 머신러닝 모델을 개발합니다.",
       tags: ["Data", "Analytic", "Investigative", "Business"],
-      valueProfile: { challenge: 5, impact: 4, income: 4 },
+      valueProfile: { challenge: 5, impact: 4, income: 4, stability: 3, creativity: 3, publicGood: 4 },
       skills: ["Python", "SQL", "ML"],
       salary: "연봉 5,000만원 ~ 9,000만원",
       requirements: ["통계학", "머신러닝", "프로그래밍"],
@@ -144,7 +144,7 @@ export default function App() {
       title: "머신러닝 엔지니어",
       description: "머신러닝 모델을 설계·학습·배포하며 AI 서비스를 실현하는 엔지니어입니다.",
       tags: ["Data", "Analytic", "Investigative", "Creative"],
-      valueProfile: { challenge: 5, income: 4, stability: 3 },
+      valueProfile: { challenge: 5, income: 4, stability: 3, creativity: 4, impact: 3, publicGood: 3 },
       skills: ["TensorFlow", "PyTorch", "MLOps"],
       salary: "연봉 5,500만원 ~ 10,000만원",
       requirements: ["ML/DL", "프로그래밍", "데이터 처리"],
@@ -162,7 +162,7 @@ export default function App() {
       title: "프로덕트 매니저 (PM)",
       description: "제품의 전략을 수립하고 개발팀을 이끌며 사용자와 비즈니스 요구사항을 조율합니다.",
       tags: ["Leadership", "Business", "People", "Creative", "Social"],
-      valueProfile: { impact: 5, creativity: 4, challenge: 4 },
+      valueProfile: { impact: 5, creativity: 4, challenge: 4, stability: 2, income: 4, publicGood: 3 },
       skills: ["문제정의", "리더십", "커뮤니케이션"],
       salary: "연봉 5,500만원 ~ 10,000만원",
       requirements: ["비즈니스 이해", "데이터 분석", "커뮤니케이션"],
@@ -180,7 +180,7 @@ export default function App() {
       title: "사이버 보안 엔지니어",
       description: "네트워크와 시스템 보안을 책임지고, 해킹 위협에 대응하는 보안 전문가입니다.",
       tags: ["Investigative", "Analytic", "Conventional", "Hardware"],
-      valueProfile: { stability: 5, challenge: 4, impact: 4 },
+      valueProfile: { stability: 5, challenge: 4, impact: 4, creativity: 2, income: 4, publicGood: 4 },
       skills: ["Network Security", "Penetration Testing", "Cryptography"],
       salary: "연봉 5,000만원 ~ 9,500만원",
       requirements: ["보안 지식", "네트워크 이해", "문제 해결"],
@@ -648,15 +648,17 @@ function valueRankingScore(rankings: string[] = [], target: Partial<Record<strin
     const englishKey = valueMap[value];
     if (englishKey && target[englishKey]) {
       // Higher ranking (lower index) gets more weight
+      // Always use 6 as base for consistent weighting
       // 1st place gets 6 points, 2nd gets 5, etc.
-      const weight = rankings.length - index;
+      const weight = 6 - index;
       const targetValue = target[englishKey] || 0;
       score += weight * targetValue;
     }
   });
   
   // Normalize to 0-10 scale
-  const maxPossibleScore = rankings.length * 5 * (rankings.length + 1) / 2;
+  // Use fixed 6 as base for consistent normalization
+  const maxPossibleScore = 6 * 5 * (6 + 1) / 2; // 105 (6+5+4+3+2+1) * 5
   return maxPossibleScore > 0 ? (score / maxPossibleScore) * 10 : 0;
 }
 
