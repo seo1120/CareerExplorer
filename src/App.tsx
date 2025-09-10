@@ -300,7 +300,21 @@ export default function App() {
               <div style={styles.card} className="card">
                 <h3 style={{...styles.cardTitle, marginBottom: 16}}>관심사/취향 (복수 선택)</h3>
                 <MultiSelect
-                  options={["Artistic","Creative","People","Social","Education","Investigative","Realistic","Conventional","Leadership","Business","Data","Analytic","Hardware"]}
+                  options={[
+                    "Artistic (예술적)",
+                    "Creative (창의적)", 
+                    "People (사람 중심)",
+                    "Social (사회적)",
+                    "Education (교육)",
+                    "Investigative (탐구적)",
+                    "Realistic (현실적)",
+                    "Conventional (전통적)",
+                    "Leadership (리더십)",
+                    "Business (비즈니스)",
+                    "Data (데이터)",
+                    "Analytic (분석적)",
+                    "Hardware (하드웨어)"
+                  ]}
                   selected={interests}
                   onChange={setInterests}
                 />
@@ -624,13 +638,17 @@ function rankCareers(careers: Career[], profile: Profile){
 function overlapScore(a: string[] = [], b: string[] = []){
   if (a.length === 0 || b.length === 0) return 0;
   
-  const set = new Set(a);
+  // 괄호 안의 한국어 설명 제거하고 영어 키워드만 추출
+  const cleanA = a.map(x => x.split(' (')[0]);
+  const cleanB = b.map(x => x.split(' (')[0]);
+  
+  const set = new Set(cleanA);
   let hit = 0;
-  b.forEach(x=> { if(set.has(x)) hit++; });
+  cleanB.forEach(x=> { if(set.has(x)) hit++; });
   
   // 매칭 정확도 계산
-  const matchRatio = hit / b.length; // 직업 태그 대비 매칭 비율
-  const precision = hit / a.length; // 사용자 관심사 대비 매칭 정확도
+  const matchRatio = hit / cleanB.length; // 직업 태그 대비 매칭 비율
+  const precision = hit / cleanA.length; // 사용자 관심사 대비 매칭 정확도
   
   // 정확도와 매칭 비율의 조화평균 (둘 다 높아야 좋은 점수)
   const harmonicMean = (2 * matchRatio * precision) / (matchRatio + precision + 0.001);
