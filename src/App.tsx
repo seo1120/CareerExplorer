@@ -766,6 +766,7 @@ function getAgeBoost(age: string, career: Career){
   // 로드맵 총 기간 계산 (개월 단위)
   const totalMonths = career.roadmap.reduce((total, step) => {
     const duration = step.duration;
+    if(duration.includes("3-4개월")) return total + 3.5;
     if(duration.includes("2-3개월")) return total + 2.5;
     if(duration.includes("1-2개월")) return total + 1.5;
     if(duration.includes("2개월")) return total + 2;
