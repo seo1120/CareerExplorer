@@ -95,10 +95,11 @@ export default function App() {
       workEnvironment: "대기업, 스타트업, 클라우드 서비스 기업",
       growth: "클라우드 전환 확대로 수요 급증",
       roadmap: [
-        { step: "1단계", detail: "AWS/GCP 기본 서비스 학습", duration: "2개월", icon: "☁️" },
-        { step: "2단계", detail: "컨테이너(Docker/Kubernetes) 실습", duration: "2개월", icon: "🐳" },
-        { step: "3단계", detail: "IaC(Terraform) 프로젝트", duration: "2개월", icon: "⚙️" },
-        { step: "4단계", detail: "클라우드 배포 자동화 경험", duration: "2개월", icon: "🚀" }
+        { step: "1단계", detail: "Linux/네트워크 기초 학습", duration: "2-3개월", icon: "🐧" },
+        { step: "2단계", detail: "AWS/GCP 기본 서비스 학습", duration: "2-3개월", icon: "☁️" },
+        { step: "3단계", detail: "컨테이너(Docker/Kubernetes) 실습", duration: "2-3개월", icon: "🐳" },
+        { step: "4단계", detail: "IaC(Terraform) 프로젝트", duration: "2-3개월", icon: "⚙️" },
+        { step: "5단계", detail: "클라우드 배포 자동화 경험", duration: "2-3개월", icon: "🚀" }
       ],
       outlook: "기업들의 클라우드 전환이 가속화됨에 따라 지속 성장",
     },
@@ -114,10 +115,11 @@ export default function App() {
       workEnvironment: "대기업 IT, 스타트업, 인프라 기업",
       growth: "빠른 개발과 안정성 확보를 위해 필수적인 역할",
       roadmap: [
-        { step: "1단계", detail: "CI/CD 기본 학습 (GitHub Actions 등)", duration: "1-2개월", icon: "🔄" },
-        { step: "2단계", detail: "컨테이너/K8s 클러스터 운영", duration: "2개월", icon: "☸️" },
-        { step: "3단계", detail: "모니터링/로깅 구축", duration: "1개월", icon: "📊" },
-        { step: "4단계", detail: "실무 자동화 프로젝트 경험", duration: "2개월", icon: "⚡" }
+        { step: "1단계", detail: "Linux/네트워크 기초 학습", duration: "2-3개월", icon: "🐧" },
+        { step: "2단계", detail: "CI/CD 파이프라인 구축", duration: "2-3개월", icon: "🔄" },
+        { step: "3단계", detail: "컨테이너/K8s 클러스터 운영", duration: "3-4개월", icon: "☸️" },
+        { step: "4단계", detail: "모니터링/로깅 시스템 구축", duration: "2-3개월", icon: "📊" },
+        { step: "5단계", detail: "실무 자동화 프로젝트 경험", duration: "3-4개월", icon: "⚡" }
       ],
       outlook: "DevOps 문화 확산으로 지속적 수요",
     },
@@ -133,9 +135,11 @@ export default function App() {
       workEnvironment: "대기업, 스타트업, 연구소",
       growth: "데이터 기반 의사결정의 중요성이 커지면서 수요 급증",
       roadmap: [
-        { step: "1단계", detail: "Python/SQL 데이터 분석", duration: "2개월", icon: "🐍" },
-        { step: "2단계", detail: "기초 ML 프로젝트", duration: "2개월", icon: "🤖" },
-        { step: "3단계", detail: "캐글/대회 참여", duration: "2개월", icon: "🏆" }
+        { step: "1단계", detail: "Python/SQL 데이터 분석 기초", duration: "3-4개월", icon: "🐍" },
+        { step: "2단계", detail: "통계학/수학 기초 학습", duration: "2-3개월", icon: "📊" },
+        { step: "3단계", detail: "기초 ML 프로젝트", duration: "3-4개월", icon: "🤖" },
+        { step: "4단계", detail: "캐글/대회 참여", duration: "2-3개월", icon: "🏆" },
+        { step: "5단계", detail: "실무 데이터 분석 프로젝트", duration: "2-3개월", icon: "💼" }
       ],
       outlook: "데이터 기반 사회로 전환 가속",
     },
@@ -151,9 +155,11 @@ export default function App() {
       workEnvironment: "AI 스타트업, 연구소, 대기업 AI팀",
       growth: "AI 서비스 수요 확대로 급격히 성장",
       roadmap: [
-        { step: "1단계", detail: "ML 기초 학습, 프로젝트 실습", duration: "2개월", icon: "📘" },
-        { step: "2단계", detail: "딥러닝 모델 구현 (CNN, RNN)", duration: "2개월", icon: "🧠" },
-        { step: "3단계", detail: "MLOps 배포 자동화", duration: "2개월", icon: "⚙️" }
+        { step: "1단계", detail: "Python/수학 기초 학습", duration: "2-3개월", icon: "📘" },
+        { step: "2단계", detail: "ML 기초 학습, 프로젝트 실습", duration: "3-4개월", icon: "🤖" },
+        { step: "3단계", detail: "딥러닝 모델 구현 (CNN, RNN)", duration: "3-4개월", icon: "🧠" },
+        { step: "4단계", detail: "MLOps 배포 자동화", duration: "2-3개월", icon: "⚙️" },
+        { step: "5단계", detail: "실무 AI 프로젝트 경험", duration: "2-4개월", icon: "💼" }
       ],
       outlook: "생성형 AI와 함께 가장 빠르게 성장하는 분야",
     },
@@ -187,9 +193,11 @@ export default function App() {
       workEnvironment: "금융사, IT 기업, 보안 전문기업",
       growth: "사이버 위협 증가로 수요 급증",
       roadmap: [
-        { step: "1단계", detail: "네트워크/시스템 보안 기초 학습", duration: "2개월", icon: "🌐" },
-        { step: "2단계", detail: "취약점 분석, 모의해킹 실습", duration: "2개월", icon: "🛡️" },
-        { step: "3단계", detail: "보안 인증/자격증 취득", duration: "2개월", icon: "📜" }
+        { step: "1단계", detail: "네트워크/시스템 기초 학습", duration: "3-4개월", icon: "🌐" },
+        { step: "2단계", detail: "보안 기초 이론 학습", duration: "2-3개월", icon: "🔒" },
+        { step: "3단계", detail: "취약점 분석, 모의해킹 실습", duration: "3-4개월", icon: "🛡️" },
+        { step: "4단계", detail: "보안 인증/자격증 취득", duration: "2-3개월", icon: "📜" },
+        { step: "5단계", detail: "실무 보안 프로젝트 경험", duration: "2-3개월", icon: "💼" }
       ],
       outlook: "사이버 보안의 중요성이 높아짐에 따라 지속 성장",
     }
@@ -758,59 +766,43 @@ function getAgeBoost(age: string, career: Career){
   // 로드맵 총 기간 계산 (개월 단위)
   const totalMonths = career.roadmap.reduce((total, step) => {
     const duration = step.duration;
-    if(duration.includes("1-2개월")) return total + 1.5;
     if(duration.includes("2-3개월")) return total + 2.5;
+    if(duration.includes("1-2개월")) return total + 1.5;
     if(duration.includes("2개월")) return total + 2;
     if(duration.includes("1개월")) return total + 1;
     return total + 2; // 기본값
   }, 0);
   
-  // 20대 초반 (20-25세): 장기 성장 직업 선호
+  // 20-25세: 12개월 이상 로드맵에 보너스 (장기 성장 직업)
   if(ageNum >= 20 && ageNum <= 25) {
-    // 로드맵이 긴 직업 (6개월 이상)에 보너스
-    if(totalMonths >= 6) {
-      return 2;
-    }
-    // AI/데이터 관련 직업에 추가 보너스
-    if(career.id.includes("ml") || career.id.includes("data-scientist")) {
-      return 3;
+    // 12개월 이상 로드맵에 보너스 (클라우드, 데브옵스, 머신러닝, 데이터, 사이버보안)
+    if(totalMonths >= 12) {
+      return 3.0;
     }
     return 0;
   }
   
-  // 20대 후반 (26-29세): 균형잡힌 접근
+  // 26-29세: 12개월 이하 로드맵에 보너스 (빠른 전환)
   if(ageNum >= 26 && ageNum <= 29) {
-    // 중간 길이 로드맵 (4-6개월)에 보너스
-    if(totalMonths >= 4 && totalMonths <= 6) {
-      return 1.5;
+    // 12개월 이하 로드맵에 보너스 (UX, 풀스택, PM)
+    if(totalMonths <= 12) {
+      return 2.0;
     }
     return 0;
   }
   
-  // 30대 초반 (30-34세): 빠른 진입 가능한 직업 선호
-  if(ageNum >= 30 && ageNum <= 34) {
-    // 로드맵이 짧은 직업 (4개월 이하)에 보너스
-    if(totalMonths <= 4) {
-      return 2.5;
+  // 30세 이상: UX와 PM에 특별 보너스
+  if(ageNum >= 30) {
+    let bonus = 0;
+    // UX와 PM에 특별 보너스
+    if(career.id.includes("ux") || career.id.includes("manager")) {
+      bonus += 2.0;
     }
-    // UX, PM 등 빠른 전환 가능한 직업에 추가 보너스
-    if(career.id.includes("ux") || career.id.includes("pm")) {
-      return 3;
+    // 12개월 이하 로드맵에도 일반 보너스
+    if(totalMonths <= 12) {
+      bonus += 2.0;
     }
-    return 0;
-  }
-  
-  // 30대 중후반 (35세 이상): 매우 빠른 진입 직업 선호
-  if(ageNum >= 35) {
-    // 로드맵이 매우 짧은 직업 (3개월 이하)에 보너스
-    if(totalMonths <= 3) {
-      return 3.5;
-    }
-    // UX, PM에 큰 보너스
-    if(career.id.includes("ux") || career.id.includes("pm")) {
-      return 4;
-    }
-    return 0;
+    return bonus;
   }
   
   return 0;
