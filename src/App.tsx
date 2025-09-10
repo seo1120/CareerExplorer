@@ -596,7 +596,7 @@ function rankCareers(careers: Career[], profile: Profile){
     const tagScore = overlapScore(profile.interests, c.tags) * 2; // interests weight
     const valScore = valueRankingScore(profile.valueRankings, c.valueProfile) * 1.5;
     const choiceScore = choiceBonus(profile.choices, c);
-    const majorBoost = profile.major && matchMajor(profile.major, c.title) ? 12 : 0;
+    const majorBoost = profile.major && matchMajor(profile.major, c.title) ? 5 : 0;
     if(profile.major) {
       console.log(`전공 "${profile.major}" vs 직업 "${c.title}": 매칭=${matchMajor(profile.major, c.title)}, 보너스=${majorBoost}`);
     }
@@ -664,12 +664,19 @@ function valueRankingScore(rankings: string[] = [], target: Partial<Record<strin
 
 function choiceBonus(choices: Record<string,string>, c: Career){
   let s = 0;
-  if(choices.deadline === "a" && (c.id.includes("dev")||c.id.includes("engineer"))) s += 1.5; // hands-on
-  if(choices.deadline === "b" && (c.id.includes("manager")||c.id.includes("ux"))) s += 1.5; // coordination
-  if(choices.launch === "a" && (c.id.includes("ux")||c.id.includes("manager"))) s += 1.0; // user-first
-  if(choices.launch === "b" && (c.id.includes("data")||c.id.includes("frontend")||c.id.includes("backend"))) s += 1.0; // experiment-first
-  if(choices.learning === "a" && (c.id.includes("frontend")||c.id.includes("backend")||c.id.includes("ux"))) s += 0.8;
-  if(choices.learning === "b" && (c.id.includes("data")||c.id.includes("engineer"))) s += 0.8;
+  
+  // 마감 상황: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
+  if(choices.deadline === "a" && (c.id.includes("dev")||c.id.includes("engineer"))) s += 5.0; // hands-on
+  if(choices.deadline === "b" && (c.id.includes("manager")||c.id.includes("ux"))) s += 5.0; // coordination
+  
+  // 런칭 준비: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
+  if(choices.launch === "a" && (c.id.includes("ux")||c.id.includes("manager"))) s += 4.0; // user-first
+  if(choices.launch === "b" && (c.id.includes("data")||c.id.includes("ml")||c.id.includes("cloud")||c.id.includes("devops")||c.id.includes("cybersecurity"))) s += 4.0; // experiment-first
+  
+  // 학습 스타일: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
+  if(choices.learning === "a" && (c.id.includes("ux")||c.id.includes("dev")||c.id.includes("cloud")||c.id.includes("devops"))) s += 4.0;
+  if(choices.learning === "b" && (c.id.includes("data")||c.id.includes("ml")||c.id.includes("engineer")||c.id.includes("cybersecurity")||c.id.includes("manager"))) s += 4.0;
+  
   return s;
 }
 
