@@ -601,7 +601,7 @@ type Profile = {
 
 function rankCareers(careers: Career[], profile: Profile){
   const results = careers.map(c => {
-    const tagScore = overlapScore(profile.interests, c.tags) * 2; // interests weight
+    const tagScore = overlapScore(profile.interests, c.tags) * 1.5; // interests weight
     const valScore = valueRankingScore(profile.valueRankings, c.valueProfile) * 1.5;
     const choiceScore = choiceBonus(profile.choices, c);
     const majorBoost = profile.major && matchMajor(profile.major, c.title) ? 5 : 0;
@@ -674,12 +674,12 @@ function choiceBonus(choices: Record<string,string>, c: Career){
   let s = 0;
   
   // 마감 상황: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
-  if(choices.deadline === "a" && (c.id.includes("dev")||c.id.includes("engineer"))) s += 5.0; // hands-on
-  if(choices.deadline === "b" && (c.id.includes("manager")||c.id.includes("ux"))) s += 5.0; // coordination
+  if(choices.deadline === "a" && (c.id.includes("dev")||c.id.includes("ml")||c.id.includes("cybersecurity")||c.id.includes("data"))) s += 4.0; // hands-on
+  if(choices.deadline === "b" && (c.id.includes("manager")||c.id.includes("ux")||c.id.includes("devops")||c.id.includes("cloud"))) s += 4.0; // coordination
   
   // 런칭 준비: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
   if(choices.launch === "a" && (c.id.includes("ux")||c.id.includes("manager"))) s += 4.0; // user-first
-  if(choices.launch === "b" && (c.id.includes("data")||c.id.includes("ml")||c.id.includes("cloud")||c.id.includes("devops")||c.id.includes("cybersecurity"))) s += 4.0; // experiment-first
+  if(choices.launch === "b" && (c.id.includes("data")||c.id.includes("ml")||c.id.includes("cloud")||c.id.includes("devops")||c.id.includes("cybersecurity")||c.id.includes("dev"))) s += 4.0; // experiment-first
   
   // 학습 스타일: 특정 직업만 점수 (차별화) - 가중치 대폭 증가
   if(choices.learning === "a" && (c.id.includes("ux")||c.id.includes("dev")||c.id.includes("cloud")||c.id.includes("devops"))) s += 4.0;
