@@ -1,69 +1,118 @@
-# React + TypeScript + Vite
+# 🚀 Career Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+개인화된 직업 추천 시스템으로 당신에게 맞는 IT 직업을 찾아보세요!
 
-Currently, two official plugins are available:
+## ✨ 주요 기능
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🎯 **개인화된 추천**
+- **관심사 기반 매칭**: 13가지 관심사 중 선택하여 맞춤형 추천
+- **가치관 순위**: 6가지 가치관을 순위별로 정렬하여 정확한 매칭
+- **상황별 선택**: 마감 상황, 런칭 준비, 학습 스타일을 고려한 추천
 
-## Expanding the ESLint configuration
+### 📊 **종합적 평가 시스템**
+- **관심사**: 15점 (1.5배 가중치)
+- **가치관**: 15점 (1.5배 가중치)  
+- **선택**: 12점 (최대)
+- **전공**: 5점
+- **학력**: 4점
+- **나이**: 4점 (최대)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🎨 **직업별 상세 정보**
+- **로드맵**: 현실적인 학습 기간과 단계별 가이드
+- **연봉 정보**: 실제 시장 수준의 급여 정보
+- **필요 스킬**: 각 직업에 필요한 핵심 기술
+- **성장 전망**: 업계 트렌드와 미래 전망
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ 기술 스택
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- **Frontend**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS-in-JS (인라인 스타일)
+- **State Management**: React Hooks (useState, useMemo)
+- **Data Persistence**: Local Storage
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 시작하기
+
+### 설치
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 개발 서버 실행
+```bash
+npm run dev
 ```
+
+### 빌드
+```bash
+npm run build
+```
+
+## 📋 지원 직업
+
+### 🎨 **디자인 & 기획**
+- **UX 디자이너**: 사용자 경험 설계 (7-10개월 로드맵)
+- **프로덕트 매니저**: 제품 전략 및 팀 리딩 (5-6개월 로드맵)
+
+### 💻 **개발**
+- **풀스택 개발자**: 프론트엔드 + 백엔드 개발 (7-11개월 로드맵)
+
+### ☁️ **인프라 & 운영**
+- **클라우드 엔지니어**: AWS/GCP 인프라 관리 (10-15개월 로드맵)
+- **데브옵스 엔지니어**: CI/CD 및 자동화 (12-18개월 로드맵)
+
+### 📊 **데이터 & AI**
+- **데이터 사이언티스트**: 데이터 분석 및 인사이트 도출 (12-17개월 로드맵)
+- **머신러닝 엔지니어**: AI 모델 개발 및 배포 (12-18개월 로드맵)
+
+### 🔒 **보안**
+- **사이버 보안 엔지니어**: 네트워크 및 시스템 보안 (12-17개월 로드맵)
+
+## 🎯 추천 알고리즘
+
+### 관심사 매칭
+- **13가지 관심사**: Artistic, Creative, People, Social, Education, Investigative, Realistic, Conventional, Leadership, Business, Data, Analytic, Hardware
+- **조화평균 계산**: 매칭 정확도와 비율을 모두 고려한 공정한 평가
+
+### 가치관 순위
+- **6가지 가치**: 창의성, 임팩트, 안정성, 도전, 수입, 공공선
+- **순위별 가중치**: 1순위부터 6순위까지 차등 가중치 적용
+
+### 나이별 최적화
+- **20-25세**: 12개월 이상 로드맵 (장기 성장 직업)
+- **26-29세**: 12개월 이하 로드맵 (빠른 전환)
+- **30세 이상**: UX/PM 특별 보너스 + 12개월 이하 로드맵
+
+## 📱 사용법
+
+1. **기본 정보 입력**: 이름, 나이, 학력, 전공
+2. **관심사 선택**: 13가지 관심사 중 복수 선택
+3. **가치관 순위**: 6가지 가치를 중요도 순으로 정렬
+4. **상황별 선택**: 마감 상황, 런칭 준비, 학습 스타일 선택
+5. **결과 확인**: 상위 3개 직업 추천 및 상세 정보 확인
+
+## 🔧 개발 정보
+
+### 프로젝트 구조
+```
+src/
+├── App.tsx          # 메인 애플리케이션
+├── main.tsx         # 진입점
+├── index.css        # 글로벌 스타일
+└── vite-env.d.ts    # Vite 타입 정의
+```
+
+### 주요 함수
+- `rankCareers()`: 직업 추천 알고리즘
+- `overlapScore()`: 관심사 매칭 점수 계산
+- `valueRankingScore()`: 가치관 순위 점수 계산
+- `choiceBonus()`: 상황별 선택 보너스 계산
+- `getAgeBoost()`: 나이별 보너스 계산
+
+## 📄 라이선스
+
+MIT License
+
+---
+
+**Career Explorer**로 당신의 꿈의 직업을 찾아보세요! 🌟
