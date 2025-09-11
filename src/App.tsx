@@ -275,20 +275,11 @@ export default function App() {
                   <Field label="전공">
                     <select value={major} onChange={e=>setMajor(e.target.value)} style={{width:'100%', padding:'10px 12px', border:'1px solid #ddd', borderRadius:10, fontSize:14, background:'white'}}>
                       <option value="">전공을 선택해주세요</option>
-                      <option value="컴퓨터공학">컴퓨터공학</option>
-                      <option value="소프트웨어공학">소프트웨어공학</option>
-                      <option value="정보통신공학">정보통신공학</option>
-                      <option value="데이터사이언스">데이터사이언스</option>
-                      <option value="수학">수학</option>
-                      <option value="통계학">통계학</option>
-                      <option value="경영학">경영학</option>
-                      <option value="경제학">경제학</option>
-                      <option value="마케팅">마케팅</option>
-                      <option value="디자인">디자인</option>
-                      <option value="시각디자인">시각디자인</option>
-                      <option value="UX/UI디자인">UX/UI디자인</option>
-                      <option value="기계공학">기계공학</option>
-                      <option value="전자공학">전자공학</option>
+                      <option value="소프트웨어 계열">소프트웨어 계열 (컴퓨터공학, 소프트웨어공학, 정보통신공학)</option>
+                      <option value="디자인 계열">디자인 계열 (디자인, 시각디자인, UX/UI디자인)</option>
+                      <option value="경영마케팅 계열">경영마케팅 계열 (경영학, 경제학, 마케팅)</option>
+                      <option value="공학 계열">공학 계열 (기계공학, 전자공학)</option>
+                      <option value="수학통계학 계열">수학통계학 계열 (데이터사이언스, 수학, 통계학)</option>
                       <option value="기타">기타</option>
                     </select>
                   </Field>
@@ -713,29 +704,29 @@ function choiceBonus(choices: Record<string,string>, c: Career){
 function matchMajor(major: string, title: string){
   const t = title.toLowerCase();
   
-  // 컴퓨터/소프트웨어 관련 전공
-  if(major === "컴퓨터공학" || major === "소프트웨어공학" || major === "정보통신공학"){
-    return ["developer","engineer","fullstack","cloud","devops","pm","product","cybersecurity","보안"].some(k=> t.includes(k));
+  // 소프트웨어 계열
+  if(major === "소프트웨어 계열"){
+    return ["developer","engineer","fullstack","cloud","devops","pm","product","cybersecurity","보안","데브옵스","데이터","머신러닝","사이버"].some(k=> t.includes(k));
   }
   
-  // 데이터 관련 전공
-  if(major === "데이터사이언스" || major === "수학" || major === "통계학"){
+  // 수학통계학 계열
+  if(major === "수학통계학 계열"){
     return ["data","scientist","engineer","데이터","ml","머신러닝"].some(k=> t.includes(k));
   }
   
-  // 디자인 관련 전공
-  if(major === "디자인" || major === "시각디자인" || major === "UX/UI디자인"){
+  // 디자인 계열
+  if(major === "디자인 계열"){
     return ["ux","designer"].some(k=> t.includes(k));
   }
   
-  // 경영/비즈니스 관련 전공
-  if(major === "경영학" || major === "경제학" || major === "마케팅"){
+  // 경영마케팅 계열
+  if(major === "경영마케팅 계열"){
     return ["manager","pm","product"].some(k=> t.includes(k));
   }
   
-  // 공학 관련 전공
-  if(major === "기계공학" || major === "전자공학"){
-    return ["engineer","developer","cloud","devops","cybersecurity","보안"].some(k=> t.includes(k));
+  // 공학 계열
+  if(major === "공학 계열"){
+    return ["engineer","developer","cloud","devops","cybersecurity","보안","데이터","머신러닝","ml","scientist"].some(k=> t.includes(k));
   }
   
   return false;
