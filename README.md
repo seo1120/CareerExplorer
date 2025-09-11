@@ -70,6 +70,8 @@ npm run build
 
 ## 🎯 추천 알고리즘
 
+> 📋 **점수 로직 설계 문서**: [노션 페이지](https://www.notion.so/269e4dc4749480da80e0f780bd27da14?source=copy_link)에서 자세한 알고리즘 설계 과정을 확인할 수 있습니다.
+
 ### 관심사 매칭
 - **13가지 관심사**: Artistic, Creative, People, Social, Education, Investigative, Realistic, Conventional, Leadership, Business, Data, Analytic, Hardware
 - **조화평균 계산**: 매칭 정확도와 비율을 모두 고려한 공정한 평가
