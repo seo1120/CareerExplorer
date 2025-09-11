@@ -378,7 +378,7 @@ export default function App() {
                   {(item.career.tags||[]).map(t=> pill(t, true))}
                 </div>
                 <ul style={{marginTop:6, color:'#333', listStyle:'none', paddingLeft:0}}>
-                  <li>• 관심사/태그 적합도 높음</li>
+                  <li>• 관심사 적합도({overlapScore(interests, item.career.tags).toFixed(1)})</li>
                   <li>• 가치관 정합도({valueRankingScore(valueRankings, item.career.valueProfile).toFixed(1)})</li>
                   <li>• 전망: {item.career.outlook}</li>
                 </ul>
