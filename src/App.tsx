@@ -393,7 +393,7 @@ export default function App() {
                 </ul>
                 <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginTop:8}}>
                   <small style={{color:'#64748b'}}>
-                    나이 {item.breakdown?.age.toFixed(1)} / 학력 {item.breakdown?.edu.toFixed(1)} / 전공 {item.breakdown?.major.toFixed(1)} / 관심사 {item.breakdown?.tag.toFixed(1)} / 가치관 {item.breakdown?.val.toFixed(1)} / 선택 {item.breakdown?.choice.toFixed(1)}
+                    나이 {item.breakdown?.age.toFixed(1)} / 전공×학력 {item.breakdown?.majorEdu.toFixed(1)} / 관심사 {item.breakdown?.tag.toFixed(1)} / 가치관 {item.breakdown?.val.toFixed(1)} / 선택 {item.breakdown?.choice.toFixed(1)}
                   </small>
                 </div>
                 <p style={{marginTop:12, color:'#EC4899', fontSize:14, fontWeight:500, textAlign:'center'}}>
@@ -618,18 +618,22 @@ function rankCareers(careers: Career[], profile: Profile){
     const tagScore = overlapScore(profile.interests, c.tags) * 1.5; // interests weight
     const valScore = valueRankingScore(profile.valueRankings, c.valueProfile) * 1.5;
     const choiceScore = choiceBonus(profile.choices, c);
-    const majorBoost = profile.major && matchMajor(profile.major, c.title) ? 5 : 0;
+    // 전공 × 학력 조합 시스템 (최대 8점)
+    const majorScore = profile.major && matchMajor(profile.major, c.title) ? 2 : 1;
+    const educationScore = getEducationBoost(profile.education);
+    const majorEducationScore = majorScore * educationScore;
+    
     if(profile.major) {
-      console.log(`전공 "${profile.major}" vs 직업 "${c.title}": 매칭=${matchMajor(profile.major, c.title)}, 보너스=${majorBoost}`);
+      console.log(`전공 "${profile.major}" vs 직업 "${c.title}": 매칭=${matchMajor(profile.major, c.title)}, 전공점수=${majorScore}, 학력점수=${educationScore}, 조합점수=${majorEducationScore}`);
     }
-    const educationBoost = getEducationBoost(profile.education);
+    
     const ageBoost = getAgeBoost(profile.age, c);
-    const total = tagScore + valScore + choiceScore + majorBoost + educationBoost + ageBoost;
+    const total = tagScore + valScore + choiceScore + majorEducationScore + ageBoost;
     
     // Debug logging
-    console.log(`${c.title}: tag=${tagScore.toFixed(1)}, val=${valScore.toFixed(1)}, choice=${choiceScore.toFixed(1)}, major=${majorBoost}, edu=${educationBoost.toFixed(1)}, age=${ageBoost.toFixed(1)}, total=${total.toFixed(1)}`);
+    console.log(`${c.title}: tag=${tagScore.toFixed(1)}, val=${valScore.toFixed(1)}, choice=${choiceScore.toFixed(1)}, majorEdu=${majorEducationScore.toFixed(1)}, age=${ageBoost.toFixed(1)}, total=${total.toFixed(1)}`);
     
-    return { career: c, score: total, breakdown: { tag: tagScore, val: valScore, choice: choiceScore, major: majorBoost, edu: educationBoost, age: ageBoost } };
+    return { career: c, score: total, breakdown: { tag: tagScore, val: valScore, choice: choiceScore, majorEdu: majorEducationScore, age: ageBoost } };
   });
   results.sort((a,b)=> b.score - a.score);
   return results;
